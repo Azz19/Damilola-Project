@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Active-Constraint Failures in Learned AC Optimal Power Flow — research manuscript by Damilola Agboola and Kasem Khalil.">
+  <meta name="theme-color" content="#12342f">
+  <meta property="og:title" content="Active-Constraint Failures in Learned AC Optimal Power Flow">
+  <meta property="og:description" content="Why learned AC-OPF surrogates under-bend as constraints activate, and what that means for feasibility.">
+  <title>Active-Constraint Failures in Learned AC Optimal Power Flow — Damilola Agboola</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:light;--bg:#f7f7f2;--ink:#172d2b;--muted:#62736d;--deep:#12342f;--mint:#c5ec92;--rule:#dce2da;--card:#fffefa}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}a:focus-visible{outline:3px solid #6dbaa3;outline-offset:4px}.wrap{width:min(1100px,calc(100% - 48px));margin:0 auto}
+    header{border-bottom:1px solid var(--rule);background:#fffefa}nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{text-decoration:none;font-weight:800;letter-spacing:-.06em;font-size:25px}.brand span{color:#4b8d72}.back{text-decoration:none;font-size:13px;font-weight:700;border-bottom:1px solid currentColor}
+    .hero{background:var(--deep);color:#eef5ec;padding:90px 0 98px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-150px;top:-160px;width:500px;height:500px;border:1px solid rgba(180,230,200,.15);border-radius:50%;pointer-events:none}
+    .eyebrow{font-size:11px;letter-spacing:.19em;font-weight:800;color:var(--mint);text-transform:uppercase}.hero h1{font-size:clamp(40px,6.4vw,82px);line-height:1.06;letter-spacing:-.06em;max-width:1000px;margin:20px 0 24px;font-weight:700}.hero h1 em{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.018em;color:var(--mint)}
+    .hero .intro{font-size:17px;line-height:1.75;max-width:800px;color:#d2e3d9}.authors{font-size:14px;font-weight:700;margin-top:25px}.affiliation{font-size:12px;color:#b3c9c0;margin-top:5px}
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.pill{font-size:11px;border:1px solid #5a796e;color:#d5e8dd;padding:6px 11px;border-radius:40px}
+    main{padding:60px 0 120px}.section{margin-bottom:76px}.kicker{font-size:11px;letter-spacing:.17em;font-weight:800;color:#4f8167;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(31px,4vw,49px);line-height:1.12;letter-spacing:-.045em;margin:0 0 24px}h2 em{font-family:"Instrument Serif",Georgia,serif;font-weight:400}.lead{font-size:18px;line-height:1.85;max-width:820px}.muted{color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.stat{padding:27px;background:var(--card);border:1px solid var(--rule);border-radius:8px}.num{font-weight:800;font-size:clamp(31px,4vw,48px);letter-spacing:-.06em;line-height:1}.stat p{font-size:13px;color:var(--muted);line-height:1.55;margin:12px 0 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{padding:30px;background:var(--card);border:1px solid var(--rule);border-radius:8px}.panel .index{font-size:11px;color:#628b72;letter-spacing:.15em;font-weight:800}.panel h3{font-size:20px;line-height:1.25;letter-spacing:-.03em;margin:12px 0}.panel p{font-size:14px;margin:0;color:#50615c}
+    .result-table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}.result-table th,.result-table td{padding:16px 14px;text-align:left;border-bottom:1px solid var(--rule)}.result-table th{background:#e7efe6;font-size:12px;text-transform:uppercase;letter-spacing:.06em}.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px}
+    .note{border-left:3px solid #5b9c77;padding:5px 0 5px 20px;color:#536860;font-size:14px;margin-top:22px;max-width:850px}
+    .cta{margin-top:60px;padding:34px;background:var(--deep);border-radius:8px;color:#eff7ec;display:flex;align-items:center;justify-content:space-between;gap:24px}.cta h2{font-size:30px;margin:0 0 8px}.cta p{font-size:13px;color:#c8dbd0;margin:0}.btn{white-space:nowrap;background:var(--mint);padding:12px 18px;color:#17332c;border-radius:4px;text-decoration:none;font-size:12px;font-weight:800}
+    footer{border-top:1px solid var(--rule);padding:30px 0;color:var(--muted);font-size:12px}
+    @media(max-width:700px){.wrap{width:min(100% - 34px,1100px)}.hero{padding:65px 0 78px}.stats{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.cta{display:block}.btn{display:inline-block;margin-top:22px}}
+  </style>
+</head>
+<body>
+<header><nav class="wrap"><a class="brand" href="./" aria-label="Damilola Agboola home">DA<span>.</span></a><a class="back" href="./#research">← Back to research</a></nav></header>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">2026 / Research manuscript / AC optimal power flow</div>
+  <h1>Active-Constraint Failures in Learned <em>AC Optimal Power Flow.</em></h1>
+  <p class="intro">Average prediction accuracy can look strong while recovered power-flow solutions violate the limits that matter most. This study follows individual constraints into their binding regimes to explain when and why violations grow.</p>
+  <div class="authors">Damilola Agboola &amp; Kasem Khalil</div>
+  <div class="affiliation">Department of Electrical and Computer Engineering · University of Mississippi · Oxford, Mississippi</div>
+  <div class="pills"><span class="pill">AC-OPF</span><span class="pill">Active constraints</span><span class="pill">Learned surrogates</span><span class="pill">Feasibility evaluation</span></div>
+</div></section>
+<main class="wrap">
+  <section class="section">
+    <div class="kicker">The research question</div>
+    <h2>What happens <em>after</em> a constraint binds?</h2>
+    <p class="lead">Learned AC-OPF surrogates are often assessed through average setpoint errors. We instead examine the <strong>same constraint along a load path</strong>, starting at the point where the optimal solution reaches its limit. After reconstructing the physical AC state using power-flow recovery, we ask whether the surrogate's violation worsens as the operating point moves deeper into the binding regime.</p>
+    <div class="stats">
+      <div class="stat"><div class="num">539</div><p>Constraint-activation episodes analyzed on the 300-bus system</p></div>
+      <div class="stat"><div class="num">0.338 / 0.345</div><p>Depth-growth slopes for the two confirmatory MLP models on 300 buses</p></div>
+      <div class="stat"><div class="num">8–10%</div><p>Median fraction of the optimal change in slope reproduced at activation by the two MLPs on 300 buses</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="kicker">Method</div>
+    <h2>Measure the failure. <em>Explain the mechanism.</em></h2>
+    <div class="grid">
+      <article class="panel"><div class="index">01 / EVENT STUDY</div><h3>Follow each binding constraint</h3><p>Track a constraint through its activation on a load path and measure normalized violation depth after AC power-flow recovery. Compare within the same constraint when its optimal slack remains zero.</p></article>
+      <article class="panel"><div class="index">02 / UNDER-BENDING</div><h3>Test whether models learn the kink</h3><p>Compare the slopes of optimal and surrogate slack before and after activation. A model may track the approach to a bound while failing to turn with the optimal solution at the boundary.</p></article>
+      <article class="panel"><div class="index">03 / AC SENSITIVITY</div><h3>Identify the cause of growth</h3><p>Decompose linearized constraint violation into sensitivity magnitude, control-error magnitude, and their directional alignment to distinguish amplification from systematic error direction.</p></article>
+      <article class="panel"><div class="index">04 / PRACTICAL CORRECTION</div><h3>Evaluate selective re-solving</h3><p>Test whether selecting instances for optimization re-solving by predicted binding strength outperforms simpler choices based on load, random selection, or disagreement.</p></article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="kicker">Replication and evidence</div>
+    <h2>Growth persists across <em>two power systems.</em></h2>
+    <div class="table-wrap">
+      <table class="result-table">
+        <thead><tr><th>System</th><th>MLP (64)</th><th>MLP (256,256)</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>300-bus PGLib</td><td>0.338</td><td>0.345</td><td>Both depth slopes positive; 539 constraint episodes</td></tr>
+          <tr><td>200-bus PGLib</td><td>0.395</td><td>0.487</td><td>Replicated positive depth slopes; evidence mainly reactive limits</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Slopes are the study's logged violation-depth regression coefficients, not percentages. The 300-bus study also examines voltage limits and other constraint types; the 200-bus replication is predominantly reactive-limit episodes.</p>
+  </section>
+  <section class="section">
+    <div class="kicker">Principal findings</div>
+    <h2>Better averages do not guarantee <em>binding-regime feasibility.</em></h2>
+    <div class="grid">
+      <article class="panel"><div class="index">FINDING / 01</div><h3>Accuracy lowers the level, not the growth</h3><p>A more accurate full-state MLP reduced reactive violation on the 300-bus study yet retained a depth slope close to the conventional MLP.</p></article>
+      <article class="panel"><div class="index">FINDING / 02</div><h3>Under-bending explains the pattern</h3><p>Surrogates frequently follow an approaching limit but do not reproduce the optimal change in slope when the constraint binds.</p></article>
+      <article class="panel"><div class="index">FINDING / 03</div><h3>Alignment, not amplification</h3><p>Recovered violations grow mainly because the surrogate's control errors increasingly point in a direction to which the binding constraint is sensitive, not because sensitivity magnitude increases.</p></article>
+      <article class="panel"><div class="index">FINDING / 04</div><h3>Selective re-solving remains difficult</h3><p>Selection using predicted binding strength did not outperform load-based selection under the study's prespecified comparison criteria.</p></article>
+    </div>
+    <p class="note">The findings are from the supplied research manuscript. The work is presented here as a manuscript; no journal acceptance or conference publication is claimed.</p>
+  </section>
+  <section class="cta"><div><h2>Interested in the research?</h2><p>Discuss active-set-aware correction, feasibility diagnostics, or collaborations in learned power-system optimization.</p></div><a class="btn" href="mailto:Damilola014@gmail.com?subject=Active-Constraint%20Failures%20research">Get in touch ↗</a></section>
+</main>
+<footer><div class="wrap">© Damilola Agboola · <a href="./">Portfolio</a> · <a href="mailto:Damilola014@gmail.com">Damilola014@gmail.com</a></div></footer>
+</body>
+</html>
