@@ -250,6 +250,24 @@ h2 em { font-size: 1.12em; color: #50977f; }
 .timeline-detail > p:last-child { font-size: 13px; color: var(--muted); line-height: 1.8; max-width: 620px; margin-bottom: 0; }
 .timeline-index { text-align: right; font-size: 12px; color: #8da99b; }
 
+
+/* Credentials */
+.section-credentials { padding: 120px 0 125px; background: var(--page); border-top: 1px solid var(--line); }
+.credentials-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin: 28px 0 40px; }
+.credentials-head h2 { margin: 0; max-width: 670px; }
+.credentials-head > p { margin: 0 0 5px; max-width: 320px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.credentials-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+.credential-card { background: var(--surface); padding: 35px 36px 38px; border: 1px solid var(--line); border-radius: 6px; }
+.credential-kicker { color: #5d987a; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+.credential-card h3 { font-size: 24px; letter-spacing: -.65px; line-height: 1.2; margin: 12px 0 23px; }
+.credential-row { padding: 16px 0; border-top: 1px solid var(--line); }
+.credential-row strong { display: block; font-size: 14px; font-weight: 750; line-height: 1.5; }
+.credential-row small { display: block; margin-top: 4px; font-size: 12px; line-height: 1.65; color: var(--muted); }
+.credential-card .source-link { display: inline-block; margin-top: 20px; font-size: 12px; font-weight: 750; color: var(--accent); border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.credentials-note { font-size: 12px; margin: 24px 0 0; color: var(--muted); line-height: 1.8; }
+@media(max-width:900px){.section-credentials{padding:96px 0}.credentials-head{display:block}.credentials-head>p{max-width:620px;margin-top:20px}.credentials-grid{gap:15px}}
+@media(max-width:680px){.section-credentials{padding:79px 0}.credentials-grid{grid-template-columns:1fr}.credential-card{padding:26px 25px 29px}}
+
 /* Methods */
 .section-methods { padding: 120px 0 135px; }
 .methods-layout { display: grid; grid-template-columns: 1fr 1.24fr; gap: 110px; }
@@ -419,6 +437,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
           <a href="#research">Research</a>
           <a href="#publications">Publications</a>
           <a href="#experience">Experience</a>
+          <a href="#credentials">Credentials</a>
         </nav>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme">
@@ -430,7 +449,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
         </div>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -525,12 +544,49 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
       </section>
 
       <section class="section section-experience" id="experience" aria-labelledby="experience-title"><div class="container"><div class="section-heading experience-heading"><div class="section-label"><span class="section-number">04</span><span>THE JOURNEY</span></div><h2 id="experience-title">From the field <em>to the frontier.</em></h2><p>A foundation in real energy systems, now informing research into the next generation of power-system intelligence.</p></div><div class="timeline">
-        <div class="timeline-row reveal"><div class="timeline-date">2024 — PRESENT</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>PhD Researcher</h3><p class="timeline-org">University of Mississippi · Electrical & Computer Engineering</p><p>Research in intelligent power systems, graph-based learning, optimization, and robust decision-making under uncertainty.</p></div><span class="timeline-index">01</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2022 — 2023</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Business & Project Development</h3><p class="timeline-org">PowerGen Renewable Energy</p><p>Industry experience in renewable-energy solutions and project development.</p></div><span class="timeline-index">02</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2018 — 2022</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Project Engineering</h3><p class="timeline-org">Ikeja Electric</p><p>Practical grounding in electricity distribution networks and power-sector operations.</p></div><span class="timeline-index">03</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2024 — PRESENT</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>PhD Researcher · Data Analytics Graduate Assistant</h3><p class="timeline-org">University of Mississippi · Electrical & Computer Engineering / Center for STEM Learning</p><p>Research in reliable machine learning for electric power systems and data analysis supporting STEM education and student outcomes.</p></div><span class="timeline-index">01</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2023 — 2024</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Subject Matter Expert · Consultant</h3><p class="timeline-org">Millennium Challenge Corporation</p><p>Technical consulting experience related to energy-sector projects and power infrastructure.</p></div><span class="timeline-index">02</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2022 — 2023</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Business & Project Development Lead</h3><p class="timeline-org">PowerGen Renewable Energy</p><p>Renewable-energy project development, distributed energy solutions, and expanding access to reliable electricity.</p></div><span class="timeline-index">03</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2018 — 2022</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Project Engineer</h3><p class="timeline-org">Ikeja Electric</p><p>Electricity distribution engineering, network infrastructure, and power-sector operations.</p></div><span class="timeline-index">04</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2016 — 2017</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Senior Technical Support Engineer</h3><p class="timeline-org">Solmenz Engineering</p><p>Technical engineering support and power-equipment deployment.</p></div><span class="timeline-index">05</span></div>
       </div></div></section>
 
-      <section class="section section-methods" aria-labelledby="methods-title"><div class="container methods-layout"><div><div class="section-label"><span class="section-number">05</span><span>MY TOOLKIT</span></div><h2 id="methods-title">Tools for <em>thinking bigger.</em></h2></div><div class="methods-grid"><div><span class="methods-label">RESEARCH METHODS</span><p>Graph Neural Networks</p><p>Physics-Informed Machine Learning</p><p>Optimal Power Flow</p><p>Stochastic & Risk-Aware Optimization</p></div><div><span class="methods-label">COMPUTATION & SYSTEMS</span><p>Python & Scientific Computing</p><p>Monte Carlo Simulation</p><p>Power-System Modeling</p><p>Model Evaluation & Diagnostics</p></div></div></div></section>
+      <section class="section section-credentials" id="credentials" aria-labelledby="credentials-title">
+        <div class="container">
+          <div class="section-label"><span class="section-number">05</span><span>CREDENTIALS &amp; RECOGNITION</span></div>
+          <div class="credentials-head"><h2 id="credentials-title">Engineering foundations.<br/><em>Continual learning.</em></h2><p>Academic training, professional registration, technical development, and recognition across engineering and computing.</p></div>
+          <div class="credentials-grid">
+            <article class="credential-card reveal">
+              <span class="credential-kicker">01 / ACADEMIC BACKGROUND</span><h3>Education</h3>
+              <div class="credential-row"><strong>PhD Researcher · Electrical &amp; Computer Engineering</strong><small>University of Mississippi · 2024–present · Doctoral research in intelligent power systems</small></div>
+              <div class="credential-row"><strong>Master of Science (M.Sc.)</strong><small>University of Lagos, Nigeria</small></div>
+              <div class="credential-row"><strong>Bachelor of Engineering (B.Eng.)</strong><small>University of Ilorin, Nigeria</small></div>
+            </article>
+            <article class="credential-card reveal">
+              <span class="credential-kicker">02 / PROFESSIONAL STANDING</span><h3>Engineering credentials</h3>
+              <div class="credential-row"><strong>Registered Engineer (R.Eng.)</strong><small>Council for the Regulation of Engineering in Nigeria (COREN)</small></div>
+              <div class="credential-row"><strong>Corporate Member (MNSE)</strong><small>Nigerian Society of Engineers</small></div>
+              <div class="credential-row"><strong>Member (MIAENG)</strong><small>International Association of Engineers (IAENG)</small></div>
+              <a class="source-link" href="https://www.linkedin.com/in/agbooladamilola" target="_blank" rel="noopener noreferrer">Professional profile <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="credential-card reveal">
+              <span class="credential-kicker">03 / CONTINUING DEVELOPMENT</span><h3>Technical training</h3>
+              <div class="credential-row"><strong>Python for Data Science and AI</strong><small>Coursera · 2020</small></div>
+              <div class="credential-row"><strong>Data Understanding and Preparation</strong><small>IBM</small></div>
+              <div class="credential-row"><strong>Do-it-Yourself Geo Apps</strong><small>Esri · 2019</small></div>
+              <div class="credential-row"><strong>Excel Proficiency Test — Certificate of Completion</strong><small>dbrown consulting · 2019</small></div>
+            </article>
+            <article class="credential-card reveal">
+              <span class="credential-kicker">04 / HONORS</span><h3>Awards &amp; recognition</h3>
+              <div class="credential-row"><strong>NITDA Scholar Postgraduate Scholarship</strong><small>National Information Technology Development Agency, Nigeria · 2016</small></div>
+              <div class="credential-row"><strong>Applied engineering &amp; research</strong><small>Experience across energy access, distribution infrastructure, renewable project development, and learned power-system optimization</small></div>
+            </article>
+          </div>
+          <p class="credentials-note">Credential details reflect the professional and education information available on public profiles. Additional degree specializations and credential documents can be incorporated when confirmed.</p>
+        </div>
+      </section>
+
+      <section class="section section-methods" aria-labelledby="methods-title"><div class="container methods-layout"><div><div class="section-label"><span class="section-number">06</span><span>MY TOOLKIT</span></div><h2 id="methods-title">Tools for <em>thinking bigger.</em></h2></div><div class="methods-grid"><div><span class="methods-label">RESEARCH METHODS</span><p>Graph Neural Networks</p><p>Physics-Informed Machine Learning</p><p>Optimal Power Flow</p><p>Stochastic & Risk-Aware Optimization</p></div><div><span class="methods-label">COMPUTATION & SYSTEMS</span><p>Python & Scientific Computing</p><p>Monte Carlo Simulation</p><p>Power-System Modeling</p><p>Model Evaluation & Diagnostics</p></div></div></div></section>
 
       <section class="section section-contact" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div class="contact-orb" aria-hidden="true">✳</div><div class="contact-eyebrow"><span class="status-dot"></span> OPEN TO MEANINGFUL CONVERSATIONS</div><h2 id="contact-title">Let's build something<br/><em>that matters.</em></h2><p>Interested in research collaboration, intelligent energy systems, or new ideas at the intersection of AI and power engineering? I’d love to hear from you.</p><div class="contact-actions"><a class="button button-contact" href="mailto:Damilola014@gmail.com?subject=Hello%20Damilola%20%E2%80%94%20Let%27s%20connect">Get in touch <span aria-hidden="true">↗</span></a><button class="copy-email" type="button" data-email="Damilola014@gmail.com" aria-label="Copy email address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copy email</span></button></div></div></section>
     </main>
