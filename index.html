@@ -251,6 +251,30 @@ h2 em { font-size: 1.12em; color: #50977f; }
 .timeline-index { text-align: right; font-size: 12px; color: #8da99b; }
 
 
+
+/* Consulting & advisory */
+.section-consulting { padding: 118px 0 125px; background: var(--page); border-top: 1px solid var(--line); }
+.consulting-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; margin: 30px 0 42px; }
+.consulting-heading h2 { margin: 0; max-width: 780px; }
+.consulting-heading > p { max-width: 410px; margin: 0 0 7px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.consulting-feature { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(265px,.65fr); border: 1px solid var(--line); background: var(--surface); border-radius: 8px; overflow: hidden; }
+.consulting-main { padding: 49px 52px 48px; }
+.consulting-period { display: inline-block; padding: 8px 12px; border: 1px solid var(--line); border-radius: 25px; color: #5d987a; font-size: 10px; font-weight: 800; letter-spacing: 1.1px; }
+.consulting-main h3 { margin: 26px 0 13px; font-size: clamp(27px,3.2vw,40px); line-height: 1.2; letter-spacing: -1.4px; }
+.consulting-program { color: #5d987a; font-weight: 750; font-size: 13px; line-height: 1.6; margin: 0 0 22px; }
+.consulting-main > p:last-of-type { font-size: 14px; line-height: 1.9; color: var(--muted); max-width: 690px; margin-bottom: 0; }
+.consulting-tags { margin-top: 30px; display: flex; gap: 8px; flex-wrap: wrap; }
+.consulting-tags span { padding: 8px 11px; font-size: 10px; font-weight: 700; letter-spacing: .5px; border: 1px solid var(--line); border-radius: 3px; }
+.consulting-aside { padding: 50px 33px; background: var(--surface-soft); border-left: 1px solid var(--line); }
+.consulting-aside-label { display: block; font-size: 10px; letter-spacing: 1.2px; font-weight: 800; color: #5d987a; margin-bottom: 23px; }
+.consulting-detail { border-top: 1px solid var(--line); padding: 17px 0; }
+.consulting-detail small { display: block; font-size: 10px; color: var(--muted); letter-spacing: .6px; margin-bottom: 7px; }
+.consulting-detail strong { display: block; font-size: 13px; line-height: 1.55; font-weight: 750; }
+.consulting-follow { margin-top: 23px; font-size: 12px; font-weight: 800; color: var(--accent); display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.consulting-context { font-size: 12px; color: var(--muted); max-width: 1050px; line-height: 1.9; margin: 25px 0 0; }
+@media (max-width: 900px) { .section-consulting{padding:95px 0 100px} .consulting-heading {grid-template-columns:1fr;gap:18px} .consulting-feature{grid-template-columns:minmax(0,1.25fr) minmax(245px,.75fr)} .consulting-main{padding:36px 32px} .consulting-aside{padding:38px 27px} }
+@media (max-width: 680px) { .section-consulting{padding:80px 0 87px} .consulting-feature{grid-template-columns:1fr} .consulting-main{padding:30px 25px} .consulting-aside{border-left:0;border-top:1px solid var(--line);padding:30px 25px} .consulting-main h3 {letter-spacing:-.8px} }
+
 /* Credentials */
 .section-credentials { padding: 120px 0 125px; background: var(--page); border-top: 1px solid var(--line); }
 .credentials-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin: 28px 0 40px; }
@@ -437,6 +461,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
           <a href="#research">Research</a>
           <a href="#publications">Publications</a>
           <a href="#experience">Experience</a>
+          <a href="#consulting">Consulting</a>
           <a href="#credentials">Credentials</a>
         </nav>
         <div class="header-actions">
@@ -449,7 +474,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
         </div>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#consulting">Consulting</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -545,15 +570,39 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 
       <section class="section section-experience" id="experience" aria-labelledby="experience-title"><div class="container"><div class="section-heading experience-heading"><div class="section-label"><span class="section-number">04</span><span>THE JOURNEY</span></div><h2 id="experience-title">From the field <em>to the frontier.</em></h2><p>A foundation in real energy systems, now informing research into the next generation of power-system intelligence.</p></div><div class="timeline">
         <div class="timeline-row reveal"><div class="timeline-date">2024 — PRESENT</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>PhD Researcher · Data Analytics Graduate Assistant</h3><p class="timeline-org">University of Mississippi · Electrical & Computer Engineering / Center for STEM Learning</p><p>Research in reliable machine learning for electric power systems and data analysis supporting STEM education and student outcomes.</p></div><span class="timeline-index">01</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2023 — 2024</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Subject Matter Expert · Consultant</h3><p class="timeline-org">Millennium Challenge Corporation</p><p>Technical consulting experience related to energy-sector projects and power infrastructure.</p></div><span class="timeline-index">02</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2022 — 2023</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Business & Project Development Lead</h3><p class="timeline-org">PowerGen Renewable Energy</p><p>Renewable-energy project development, distributed energy solutions, and expanding access to reliable electricity.</p></div><span class="timeline-index">03</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2018 — 2022</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Project Engineer</h3><p class="timeline-org">Ikeja Electric</p><p>Electricity distribution engineering, network infrastructure, and power-sector operations.</p></div><span class="timeline-index">04</span></div>
-        <div class="timeline-row reveal"><div class="timeline-date">2016 — 2017</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Senior Technical Support Engineer</h3><p class="timeline-org">Solmenz Engineering</p><p>Technical engineering support and power-equipment deployment.</p></div><span class="timeline-index">05</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2022 — 2023</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Business & Project Development Lead</h3><p class="timeline-org">PowerGen Renewable Energy</p><p>Renewable-energy project development, distributed energy solutions, and expanding access to reliable electricity.</p></div><span class="timeline-index">02</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2018 — 2022</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Project Engineer</h3><p class="timeline-org">Ikeja Electric</p><p>Electricity distribution engineering, network infrastructure, and power-sector operations.</p></div><span class="timeline-index">03</span></div>
+        <div class="timeline-row reveal"><div class="timeline-date">2016 — 2017</div><div class="timeline-icon"><span></span></div><div class="timeline-detail"><h3>Senior Technical Support Engineer</h3><p class="timeline-org">Solmenz Engineering</p><p>Technical engineering support and power-equipment deployment.</p></div><span class="timeline-index">04</span></div>
       </div></div></section>
+
+      <section class="section section-consulting" id="consulting" aria-labelledby="consulting-title">
+        <div class="container">
+          <div class="section-label"><span class="section-number">05</span><span>CONSULTING &amp; ADVISORY</span></div>
+          <div class="consulting-heading"><h2 id="consulting-title">Technical insight.<br/><em>Institutional impact.</em></h2><p>Selected consulting experience connecting power-sector engineering knowledge with policy and institutional planning.</p></div>
+          <article class="consulting-feature reveal">
+            <div class="consulting-main">
+              <span class="consulting-period">SEPTEMBER 2022 · CONSULTING ENGAGEMENT</span>
+              <h3>Subject Matter Expert &amp;<br/>Policy and Institutional Roadmap Consultant</h3>
+              <p class="consulting-program">Millennium Challenge Corporation (MCC) · Sierra Leone Energy Compact</p>
+              <p>Engaged with <strong>CEMMATS Group</strong> as a subject matter expert and consultant on the policy and institutional roadmap associated with the MCC Sierra Leone Energy Compact. This engagement brought power-sector expertise into an institutional and policy-focused assignment.</p>
+              <div class="consulting-tags"><span>POWER-SECTOR ADVISORY</span><span>ENERGY POLICY</span><span>INSTITUTIONAL ROADMAP</span></div>
+            </div>
+            <aside class="consulting-aside" aria-label="Consulting assignment details">
+              <span class="consulting-aside-label">ASSIGNMENT AT A GLANCE</span>
+              <div class="consulting-detail"><small>CONSULTING COLLABORATOR</small><strong>CEMMATS Group</strong></div>
+              <div class="consulting-detail"><small>PROGRAM</small><strong>MCC Sierra Leone Energy Compact</strong></div>
+              <div class="consulting-detail"><small>ROLE</small><strong>Subject Matter Expert · Policy &amp; Institutional Roadmap Consultant</strong></div>
+              <div class="consulting-detail"><small>ENGAGEMENT</small><strong>September 2022</strong></div>
+              <a class="consulting-follow" href="mailto:Damilola014@gmail.com?subject=Consulting%20and%20technical%20advisory%20inquiry">Discuss consulting <span aria-hidden="true">↗</span></a>
+            </aside>
+          </article>
+          <p class="consulting-context">Related expertise developed through engineering and energy-sector roles includes utility planning, techno-economic project assessment, power-system modeling, geospatial asset analysis, and stakeholder coordination. These are professional capabilities, not claims of additional consulting contracts.</p>
+        </div>
+      </section>
 
       <section class="section section-credentials" id="credentials" aria-labelledby="credentials-title">
         <div class="container">
-          <div class="section-label"><span class="section-number">05</span><span>CREDENTIALS &amp; RECOGNITION</span></div>
+          <div class="section-label"><span class="section-number">06</span><span>CREDENTIALS &amp; RECOGNITION</span></div>
           <div class="credentials-head"><h2 id="credentials-title">Engineering foundations.<br/><em>Continual learning.</em></h2><p>Academic training, professional registration, technical development, and recognition across engineering and computing.</p></div>
           <div class="credentials-grid">
             <article class="credential-card reveal">
@@ -587,7 +636,7 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
         </div>
       </section>
 
-      <section class="section section-methods" aria-labelledby="methods-title"><div class="container methods-layout"><div><div class="section-label"><span class="section-number">06</span><span>MY TOOLKIT</span></div><h2 id="methods-title">Tools for <em>thinking bigger.</em></h2></div><div class="methods-grid"><div><span class="methods-label">RESEARCH METHODS</span><p>Graph Neural Networks</p><p>Physics-Informed Machine Learning</p><p>Optimal Power Flow</p><p>Stochastic & Risk-Aware Optimization</p></div><div><span class="methods-label">COMPUTATION & SYSTEMS</span><p>Python & Scientific Computing</p><p>Monte Carlo Simulation</p><p>Power-System Modeling</p><p>Model Evaluation & Diagnostics</p></div></div></div></section>
+      <section class="section section-methods" aria-labelledby="methods-title"><div class="container methods-layout"><div><div class="section-label"><span class="section-number">07</span><span>MY TOOLKIT</span></div><h2 id="methods-title">Tools for <em>thinking bigger.</em></h2></div><div class="methods-grid"><div><span class="methods-label">RESEARCH METHODS</span><p>Graph Neural Networks</p><p>Physics-Informed Machine Learning</p><p>Optimal Power Flow</p><p>Stochastic & Risk-Aware Optimization</p></div><div><span class="methods-label">COMPUTATION & SYSTEMS</span><p>Python & Scientific Computing</p><p>Monte Carlo Simulation</p><p>Power-System Modeling</p><p>Model Evaluation & Diagnostics</p></div></div></div></section>
 
       <section class="section section-contact" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div class="contact-orb" aria-hidden="true">✳</div><div class="contact-eyebrow"><span class="status-dot"></span> OPEN TO MEANINGFUL CONVERSATIONS</div><h2 id="contact-title">Let's build something<br/><em>that matters.</em></h2><p>Interested in research collaboration, intelligent energy systems, or new ideas at the intersection of AI and power engineering? I’d love to hear from you.</p><div class="contact-actions"><a class="button button-contact" href="mailto:Damilola014@gmail.com?subject=Hello%20Damilola%20%E2%80%94%20Let%27s%20connect">Get in touch <span aria-hidden="true">↗</span></a><button class="copy-email" type="button" data-email="Damilola014@gmail.com" aria-label="Copy email address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copy email</span></button></div></div></section>
     </main>
